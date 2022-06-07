@@ -4,6 +4,6 @@ import MakeGetSimilarsController from '../factories/save.helloworld.factory';
 
 const helloWorldRoutes = Router();
 
-helloWorldRoutes.post('/helloworld', HttpAdapter(MakeGetSimilarsController()));
+helloWorldRoutes.post('/hello/world', HttpAdapter(MakeGetSimilarsController()));
 
 export default helloWorldRoutes;
