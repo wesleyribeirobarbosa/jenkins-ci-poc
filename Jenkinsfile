@@ -1,13 +1,15 @@
 pipeline {
   agent any
   stages {
-    stage("verify tooling") {
-     steps {
+    stage("unit testing") {
+      steps {
         sh '''
           npm i
           npm test
         '''
       }
+    }
+    stage("verify tooling") {
       steps {
         sh '''
           docker version
