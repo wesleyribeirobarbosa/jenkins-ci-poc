@@ -18,15 +18,10 @@ pipeline {
         '''
       }
     }
-    stage('Prune Docker data') {
-      steps {
-        sh 'docker system prune -a --volumes -f'
-      }
-    }
     stage("build") {
       steps {
         sh '''
-          docker-compose up --build -d --wait
+          docker-compose up --build --force-recreate -d
           sh 'docker-compose ps'
         '''
       }
