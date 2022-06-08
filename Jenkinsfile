@@ -10,22 +10,11 @@ pipeline {
         '''
       }
     }
-    stage('Prune Docker data') {
-      steps {
-        sh 'docker system prune -a --volumes -f'
-      }
-    }
     stage('Start container') {
       steps {
         sh 'docker compose up -d --build --wait'
         sh 'docker compose ps'
       }
-    }
-  }
-  post {
-    always {
-      sh 'docker system prune -a --volumes -f'
-      sh 'docker compose ps'
     }
   }
 }
