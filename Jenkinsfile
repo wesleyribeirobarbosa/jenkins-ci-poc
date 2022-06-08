@@ -1,10 +1,13 @@
 pipeline {
   agent any
   stages {
-    stage('Start container') {
+    stage("verify tooling") {
       steps {
-        sh 'docker compose up'
-        sh 'docker compose ps'
+        sh '''
+          docker version
+          docker info
+          docker compose version 
+        '''
       }
     }
   }
