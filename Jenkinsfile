@@ -22,7 +22,7 @@ pipeline {
       steps {
         sh '''
           docker-compose up --build --force-recreate -d
-          sh 'docker-compose ps'
+          sh 'docker ps'
         '''
       }
     }
