@@ -18,12 +18,25 @@ pipeline {
         '''
       }
     }
+    stage('Prune Docker data') {
+      steps {
+        sh 'docker system prune -a --volumes -f'
+      }
+    }
     stage("build") {
       steps {
         sh '''
-          docker-compose up --build
+          docker-compose up --build -d --wait
+          sh 'docker-compose ps'
         '''
       }
     }
   }
+  post {
+    always {
+      sh 'docker-compose down --remove-orphans -v'
+      sh 'docker-compose ps'
+    }
+  }
 }
+
