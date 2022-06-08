@@ -1,14 +1,6 @@
 pipeline {
   agent any
   stages {
-    stage("run tests") {
-      steps {
-        sh '''
-         npm install
-         npm test
-         '''
-      }
-    }
     stage("verify tooling") {
       steps {
         sh '''
