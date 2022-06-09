@@ -1,1 +1,1 @@
-# Small project to test Jenkins integrations with Github
+# Small project to test Jenkins Pipelines and integration with Github
